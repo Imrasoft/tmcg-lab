@@ -81,6 +81,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'tmcg_delivery_time',
             'secondary_lab_pickup',
             'result_time_lab',
+            'result_status',
+            'result_detail',
             'result_time_callcenter',
             'turn_around_time',
             'client_rating',

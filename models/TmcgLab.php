@@ -33,6 +33,8 @@ use yii\behaviors\TimestampBehavior;
  * @property string $secondary_lab_pickup
  * @property string $result_time_lab
  * @property string $result_time_callcenter
+ * @property string $result_status
+ * @property string $result_detail
  * @property string $turn_around_time
  * @property int $client_rating
  * @property string $client_feedback
@@ -73,9 +75,9 @@ class TmcgLab extends \yii\db\ActiveRecord
             [['patient_id'], 'string', 'max' => 12],
             [['name', 'chronic_disease', 'contact_type', 'client_type', 'pay_mode'], 'string', 'max' => 50],
             [['gender', 'turn_around_time'], 'string', 'max' => 10],
-            [['location', 'no_pay_reason', 'pickup_location'], 'string', 'max' => 100],
+            [['location', 'no_pay_reason', 'pickup_location', 'result_detail'], 'string', 'max' => 100],
             [['ready_to_pay'], 'string', 'max' => 5],
-            [['pay_status'], 'string', 'max' => 20],
+            [['pay_status', 'result_status'], 'string', 'max' => 20],
             [['client_feedback'], 'string', 'max' => 200],
             [['client_rating'], 'default'],
         ];
@@ -109,6 +111,8 @@ class TmcgLab extends \yii\db\ActiveRecord
             'tmcg_delivery_time' => 'Tmcg Delivery Time',
             'secondary_lab_pickup' => 'Secondary Lab (Carewise) Pickup',
             'result_time_lab' => 'Result Time Lab',
+            'result_status' => 'Result Status',
+            'result_detail' => 'Result Details',
             'result_time_callcenter' => 'Result Time Callcenter',
             'turn_around_time' => 'Turn Around Time',
             'client_rating' => 'Client Rating',

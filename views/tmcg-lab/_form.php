@@ -23,6 +23,8 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'presenting_complaint')->textarea(['rows' => 6]) ?>
+
     <?= $form->field($model, 'contact')->textInput() ?>
 
     <?= $form->field($model, 'gender')->widget(Select2::classname(), [       
@@ -58,8 +60,6 @@ use yii\helpers\ArrayHelper;
                 ]);
 
             ?>
-
-    <?= $form->field($model, 'presenting_complaint')->textarea(['rows' => 6]) ?>
 
 
     <?= $form->field($model, 'contact_type')->widget(Select2::classname(), [       
@@ -179,6 +179,18 @@ use yii\helpers\ArrayHelper;
      ?>
 
     <?= $form->field($model, 'turn_around_time')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'result_status')->widget(Select2::classname(), [       
+                  'data' => ArrayHelper::map(LabServiceOptions::find()->where("category = 'result status'")->all(), 'name', 'name'),
+                  'options' => ['placeholder' => 'Select ...'],
+                  'pluginOptions' => [
+                      'allowClear' => true
+                  ],
+                ]);
+
+            ?>
+
+    <?= $form->field($model, 'result_detail')->textarea(['rows' => 6]) ?>
 
 
     <?= $form->field($model, 'client_rating')->widget(StarRating::classname(), [

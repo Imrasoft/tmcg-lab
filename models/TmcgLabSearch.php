@@ -19,7 +19,7 @@ class TmcgLabSearch extends TmcgLab
     {
         return [
             [['id', 'contact', 'age', 'chronic_patient', 'client_rating', 'created_by', 'updated_by'], 'integer'],
-            [['patient_id', 'name', 'gender', 'location', 'chronic_disease', 'presenting_complaint', 'contact_type', 'ready_to_pay', 'pay_status', 'no_pay_reason', 'pay_mode', 'client_type', 'pickup_location', 'test_request_time', 'sample_collection_time', 'tmcg_delivery_time', 'secondary_lab_pickup', 'result_time_lab', 'result_time_callcenter', 'turn_around_time', 'client_feedback', 'created_at', 'updated_at'], 'safe'],
+            [['patient_id', 'name', 'gender', 'location', 'chronic_disease', 'presenting_complaint', 'contact_type', 'ready_to_pay', 'pay_status', 'no_pay_reason', 'pay_mode', 'client_type', 'pickup_location', 'test_request_time', 'sample_collection_time', 'tmcg_delivery_time', 'secondary_lab_pickup', 'result_status', 'result_detail', 'result_time_lab', 'result_time_callcenter', 'turn_around_time', 'client_feedback', 'created_at', 'updated_at'], 'safe'],
         ];
     }
 
@@ -89,6 +89,8 @@ class TmcgLabSearch extends TmcgLab
             ->andFilterWhere(['like', 'no_pay_reason', $this->no_pay_reason])
             ->andFilterWhere(['like', 'client_type', $this->client_type])
             ->andFilterWhere(['like', 'pickup_location', $this->pickup_location])
+            ->andFilterWhere(['like', 'result_status', $this->result_status])
+            ->andFilterWhere(['like', 'result_detail', $this->result_detail])
             ->andFilterWhere(['like', 'turn_around_time', $this->turn_around_time])
             ->andFilterWhere(['like', 'client_feedback', $this->client_feedback]);
 
