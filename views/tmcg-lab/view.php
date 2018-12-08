@@ -12,12 +12,15 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tmcg-lab-view">
 
-    <h3 style="darkcyan"><?= Html::encode($this->title) ?></h3>
+    <h3 style="color:darkcyan"><?= $model->patient_id ?></h3>
+    <h5><?= Html::encode($this->title) ?></h5>
+    <h5><?= $model->contact ?></h5>
+    <h5><?= $model->location ?></h5>
     <br>
     <hr>
 
     <div class="row">
-        <div class="col-ld-6">
+        <div class="col-lg-6">
             <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -32,12 +35,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'chronic_disease',
             'presenting_complaint:ntext',
             'contact_type',
-            'ready_to_pay',
-            'pay_status',
-            'pay_mode',
-            'no_pay_reason',
-            'client_type',
-            'pickup_location',
             // 'test_request_time',
             // 'sample_collection_time',
             // 'tmcg_delivery_time',
@@ -56,7 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
             
         </div>
 
-         <div class="col-ld-6">
+         <div class="col-lg-6">
             <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -71,30 +68,80 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'chronic_disease',
             // 'presenting_complaint:ntext',
             // 'contact_type',
-            // 'ready_to_pay',
-            // 'pay_status',
-            // 'no_pay_reason',
-            // 'client_type',
-            // 'pickup_location',
+            'ready_to_pay',
+            'pay_status',
+            'pay_mode',
+            'no_pay_reason',
+            'client_type',
+            'pickup_location',
             'test_request_time',
             'sample_collection_time',
             'tmcg_delivery_time',
             'secondary_lab_pickup',
             'result_time_lab',
+            'result_time_callcenter',
+            'turn_around_time',
+        ],
+    ]) ?>
+            
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-lg-6">
+             <h3 style="color:darkcyan">Lab Results</h3>
+            <br>
+             <?= DetailView::widget([
+        'model' => $model,
+        'attributes' => [
             'result_status',
             'result_detail',
             'result_time_callcenter',
             'turn_around_time',
+        ],
+    ]) ?>
+            
+        </div>
+        <div class="col-lg-6">
+            <h3 style="color:darkcyan">Rating and Feedback</h3>
+            <br>
+             <?= DetailView::widget([
+        'model' => $model,
+        'attributes' => [
             'client_rating',
             'client_feedback',
+        ],
+    ]) ?>
+            
+        </div>
+        
+    </div>
+
+
+   <div class="row">
+        <div class="col-lg-6">
+             <?= DetailView::widget([
+        'model' => $model,
+        'attributes' => [
             'created_by',
             'created_at',
+        ],
+    ]) ?>
+            
+        </div>
+        <div class="col-lg-6">
+             <?= DetailView::widget([
+        'model' => $model,
+        'attributes' => [
             'updated_by',
             'updated_at',
         ],
     ]) ?>
             
         </div>
+        
     </div>
 
     <hr>
